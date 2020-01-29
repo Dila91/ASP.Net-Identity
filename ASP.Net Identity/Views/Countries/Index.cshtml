@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ASP.Net_Identity.Models.Country>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Bind Data Into Dropdownlist (Select option)Element In MVC</h1>
+<h2>Using asp.net core 3.0 </h2>
+</hr>
+@*<select asp-for="Id" asp-items="@(new SelectList(@ViewBag.message,"Id","Name"))">
+
+</select>*@
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    @*<thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>*@
+    <tbody>
+ @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
